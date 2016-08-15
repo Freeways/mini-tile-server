@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OSM 12th</title>
+        <meta charset="UTF-8">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <link rel="icon" href="/favicon.ico">
+        <link rel="stylesheet" href="public/components/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="public/components/reveal.js/lib/css/zenburn.css">
+        <link rel="stylesheet" href="public/components/reveal.js/css/theme/blood.css" id="theme">
+        <script>
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match(/print-pdf/gi) ? 'public/components/reveal.js/css/print/pdf.css' : 'public/components/reveal.js/css/print/paper.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h2>Personalisation d'open street map</h2>
+                    <p>
+                        <small>Présenté par <a href="https://www.facebook/bash10">Béchir</a></small>
+                    </p>
+                </section>
+                <section>
+                    <h2>Les tuiles</h2>
+                    <ul>
+                        <li>Images png</li>
+                        <li>Dimensions réguliéres</li>
+                        <li><a href='http://b.tile.openstreetmap.org/18/138483/102193.png'>Example</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Serveur de tuiles</h2>
+                    <ul>
+                        <li>Répond à chaque requetes http par une tuile</li>
+                        <li>Possède un format définie d'url</li>
+                        <li>pour osm http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png</li>
+                        <li>s : serveur</li>
+                        <li>z : niveau de zoom</li>
+                        <li>x : n° de tuile relative à la Latitude</li>
+                        <li>y : n° de tuile relative à la longitude</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Le role de leaflet.js</h2>
+                </section>
+                <section>
+                    <h2>Une solution lightWieght de personalistion de map</h2>
+                    <ul>
+                        <li>Monter son serveur de tuiles pour une zone limité</li>
+                        <li>Si la zone est affichée on affiche nos tuiles</li>
+                        <li>Si non on affiche celles d'open street map</li>
+                    </ul>
+                    <a href='https://github.com/Freeways/mini-tile-server/blob/master/main.js'>Code source de la solution</a>
+                </section>
+            </div>
+        </div>
+
+        <script src="public/components/reveal.js/lib/js/head.min.js"></script>
+        <script src="public/components/reveal.js/js/reveal.js"></script>
+        <script>
+            Reveal.initialize({
+              controls: true,
+              progress: true,
+              history: true,
+              center: true,
+              transition: 'slide',
+              dependencies: [
+                {src: '/components/reveal.js/lib/js/classList.js', condition: function () {
+                    return !document.body.classList;
+                  }},
+                {src: '/components/reveal.js/plugin/highlight/highlight.js', async: true, condition: function () {
+                    return !!document.querySelector('pre code');
+                  }, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                  }},
+                {src: '/components/reveal.js/plugin/zoom-js/zoom.js', async: true},
+                {src: '/components/reveal.js/plugin/notes/notes.js', async: true}
+              ]
+            });
+        </script>
+    </body>
+</html>
