@@ -1,0 +1,12 @@
+{
+  "name": "mini-tile-server",
+  "version": "0.0.1",
+  "description": "a mini tile server interfering with OpenStreetMap",
+  "keywords": ["osm"],
+  "author": "Bechir Nemlaghi",
+  "contributors": [],
+  "dependencies": {
+    "express": "4.13.3",
+    "request": "2.73.0"
+  }  
+}

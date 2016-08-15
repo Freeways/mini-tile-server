@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OSM</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+        <link rel="stylesheet" href="/css/osm.css" />
+        <script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+        <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+    </head>
+    <body>
+        <div id="map"></div>
+        <script>
+            var map;
+            function initmap(lat, lng, zoom) {
+              // set up the map
+              map = new L.Map('map');
+              // create the tile layer with correct attribution
+              var osmUrl = 'http://localhost:8088/tiles/{z}/{x}/{y}/{s}';
+              var osmAttrib = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, the data are altered for test purpose only by <a href="https://www.facebook/bash10">Béchir</a>';
+              var osm = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 20, attribution: osmAttrib});
+
+              // start the map
+              map.setView(new L.LatLng(lat, lng), zoom);
+              map.addLayer(osm);
+            }
+            initmap(36.826248, 10.174414, 19);
+        </script>
+    </body>
+</html>
